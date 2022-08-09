@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
-import './models/transaction.dart';
+import 'components/transaction_user.dart';
 
 main() => runApp(ExpensesApp());
 class ExpensesApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,20 +14,8 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tênis de Corrida',
-      value: 310.90,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 210.50,
-      date: DateTime.now(),
-    )
-  ];
+
+
 
   @override 
   Widget build(BuildContext context) {
@@ -35,19 +24,16 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             child: Card(
               color: Colors.blue,
-              child: Text('Gráfico'),
               elevation: 5,
+              child: Text('Gráfico'),
             ),
           ),
-          Card(
-            child: Text('Lista de Transações'),
-          ),
+          TransactionUser(),
         ],
       ),
     );
